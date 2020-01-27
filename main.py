@@ -35,7 +35,7 @@ validation = model.evaluate(test_x,test_y)
 def fizz_buzz_ML(N):
     file = open("software2.0.txt",'a')
     for i in range(1,N+1):
-        index = 
+        index = np.unravel_index(answer[i-1].argmax(),answer[i-1].shape)
         if index == (0,):
             file.write("fizz_buzz" + '\n')
         elif index == (1,):
