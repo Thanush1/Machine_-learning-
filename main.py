@@ -1,6 +1,6 @@
 from model import *
 def logic_fizzbuzz(N):
-    file = open('Software1.0.txt','a')
+    file = open('Software1.0.txt','w')
     for i in range(1,N+1):
         if i % 3 == 0 and i % 5 == 0:
             file.write("fizzbuzz" + '\n')
@@ -29,7 +29,7 @@ validation = model1.evaluate(test_x,test_y)
 
 
 def fizz_buzz_ML(N):
-    file = open("software2.0.txt",'a')
+    file = open("software2.0.txt",'w')
     for i in range(1,N):
         index = np.unravel_index(answer[i-1].argmax(),answer[i-1].shape)
         
