@@ -23,9 +23,9 @@ values = [int(x) for x in string]
 test_x = np.array([binary_encode(x,10) for x in values])
 test_y = np.array([fizz_buzz_encode(x) for x in values])
 
-answer = model.predict(test_x)
+answer = model1.predict(test_x)
 
-validation = model.evaluate(test_x,test_y)
+validation = model1.evaluate(test_x,test_y)
 
 
 def fizz_buzz_ML(N):
