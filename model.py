@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[68]:
-
-
 import tensorflow as tf 
 import numpy as np 
 from tensorflow import keras 
@@ -29,26 +23,11 @@ def init_weights(shape):
     return tf.Variable(tf.random.normal(shape,stddev = 0.01 ))
 
 
-model = tf.keras.models.Sequential([keras.layers.Dense(units =250 ,input_shape =([10]),activation  = 'relu'),
+model1 = tf.keras.models.Sequential([keras.layers.Dense(units =250 ,input_shape =([10]),activation  = 'relu'),
                                     keras.layers.Dense(units = 120,activation  = 'relu'),
                                     #keras.layers.Dense(units = 50 ,input_shape = ([10]),activation  = 'relu'),
                                     #keras.layers.Dense(units = 20 ,input_shape = ([10]),activation  = 'relu'),
                             keras.layers.Dense(units = 4,activation = 'softmax')
                             ])
-model.compile(loss = 'categorical_crossentropy',optimizer='adam', metrics=['accuracy'])
-model.fit(training_X,training_Y,epochs = 100)
-
-
-# In[69]:
-
-
-
- 
-    
-
-
-# In[ ]:
-
-
-
-
+model1.compile(loss = 'categorical_crossentropy',optimizer='adam', metrics=['accuracy'])
+model1.fit(training_X,training_Y,epochs = 100)
