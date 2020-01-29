@@ -1,5 +1,6 @@
 import tensorflow as tf 
 import numpy as np 
+import sys 
 
 def fizz_buzz_encode(num):  
     if num % 3 == 0 and num %5 == 0:
@@ -15,9 +16,13 @@ def binary_encode(num,num_digits):
     return activations 
 
 
+test_input = open(str(sys.argv[1]),'r').read().strip()
+string = test_input.split("\n")
+values = [int(x) for x in string]
+
 def logic_fizzbuzz(N):
     file = open('Software1.txt','w')
-    for i in range(1,N+1):
+    for i in values :
         if i % 3 == 0 and i % 5 == 0:
             file.write("fizzbuzz" + '\n')
         elif i % 3 == 0:
@@ -40,11 +45,8 @@ model1.load_weights("model.h5")
 logic_fizzbuzz(100)
 
 
-import sys 
+
 #str(sys.argv[1]
-test_input = open(str(sys.argv[1]),'r').read().strip()
-string = test_input.split("\n")
-values = [int(x) for x in string]
 
 test_x = np.array([binary_encode(x,10) for x in values])
 test_y = np.array([fizz_buzz_encode(x) for x in values])
@@ -66,7 +68,7 @@ def fizz_buzz_ML(N):
         elif index == (2,):
             file.write("buzz" + '\n')
         else:
-            file.write(str(i) + '\n')
+            file.write(str(values[i-1]) + '\n')
     file.close()
             
 fizz_buzz_ML(101)
