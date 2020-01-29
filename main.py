@@ -17,7 +17,7 @@ def logic_fizzbuzz(N):
 logic_fizzbuzz(100)
 import sys 
 
-test_input = open(str(sys.argv[2]),'r').read().strip()
+test_input = open(str(sys.argv[1]),'r').read().strip()
 string = test_input.split("\n")
 values = [int(x) for x in string]
 
