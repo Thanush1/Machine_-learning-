@@ -23,11 +23,20 @@ def init_weights(shape):
     return tf.Variable(tf.random.normal(shape,stddev = 0.01 ))
 
 
-model1 = tf.keras.models.Sequential([keras.layers.Dense(units =250 ,input_shape =([10]),activation  = 'relu'),
+model2= tf.keras.models.Sequential([keras.layers.Dense(units =250 ,input_shape =([10]),activation  = 'relu'),
                                     keras.layers.Dense(units = 120,activation  = 'relu'),
                                     #keras.layers.Dense(units = 50 ,input_shape = ([10]),activation  = 'relu'),
                                     #keras.layers.Dense(units = 20 ,input_shape = ([10]),activation  = 'relu'),
                             keras.layers.Dense(units = 4,activation = 'softmax')
                             ])
-model1.compile(loss = 'categorical_crossentropy',optimizer='adam', metrics=['accuracy'])
-model1.fit(training_X,training_Y,epochs = 100)
+model2.compile(loss = 'categorical_crossentropy',optimizer='adam', metrics=['accuracy'])
+model2.fit(training_X,training_Y,epochs = 100)
+
+#model2.predict(binary_encode(5,10).reshape(1,10))
+
+
+model_json = model2.to_json()
+with open("weight.json", "w") as json_file:
+    json_file.write(model_json)
+# serialize weights to HDF5
+model2.save_weights("model.h5")
