@@ -44,3 +44,8 @@ def fizz_buzz_ML(N):
     file.close()
             
 fizz_buzz_ML(101)
+
+import os
+repo_path = os.path.dirname(os.path.abspath(__file__))
+out_sw_1_fp = repo_path + "/Software1.txt"
+out_sw_2_fp = repo_path + "/Software2.txt"
